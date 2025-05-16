@@ -14,3 +14,7 @@ String koneksi guest:guest@localhost:5672 adalah format standar untuk menghubung
 ## Simulation slow subscriber
 ![slow](/assets/images/slow_subs.png)
 Karena telah ditambahkan semacam delay pada subscribernya dalam memproses pesan, ketika di publisher dijalankan cargo run sebanyak 6-7 kali (mengirim data 6-7x dimana masing-masingnya ada 5 pesan), maka terlihat messages queuenya meningkat hingga menyentuh angka 30.
+
+## Running at least three subscribers
+![threesubs](/assets/images/3_subs.png)
+Pada gambar ini saya menjalankan 3 subscriber, dan pada publisher saya mengirim jumlah pesan yang sama yaitu 7x (35 pesan), tetapi bisa terlihat pada Queued Messages nya hanya menyentuh tidak menyentuh angka 20, dimana sebelumnya sampai 30. Karena subscribernya lebih banyak yaitu 3, maka ketika publisher mengirim 5 pesan tersebut akan dipecah dan diterima oleh 3 subscriber dalam memprosesnya.
