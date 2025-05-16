@@ -10,3 +10,7 @@ AMQP (Advanced Message Queuing Protocol) adalah protokol komunikasi standar terb
 
 2. What does it mean? guest:guest@localhost:5672 , what is the first guest, and what is the second guest, and what is localhost:5672 is for? <br>
 String koneksi guest:guest@localhost:5672 adalah format standar untuk menghubungkan aplikasi dengan server AMQP. Bagian pertama yaitu guest merupakan username yang digunakan untuk autentikasi ke server AMQP, sementara guest kedua adalah password untuk autentikasi tersebut. Bagian localhost menunjukkan bahwa server AMQP berjalan di mesin lokal, sedangkan 5672 adalah nomor port yang digunakan oleh protokol AMQP untuk komunikasi. Keseluruhan string koneksi ini memungkinkan aplikasi untuk terhubung dan berinteraksi dengan message broker seperti RabbitMQ yang mengelola pertukaran pesan dalam sistem.
+
+## Simulation slow subscriber
+![slow](/assets/images/slow_subs.png)
+Karena telah ditambahkan semacam delay pada subscribernya dalam memproses pesan, ketika di publisher dijalankan cargo run sebanyak 6-7 kali (mengirim data 6-7x dimana masing-masingnya ada 5 pesan), maka terlihat messages queuenya meningkat hingga menyentuh angka 30.
